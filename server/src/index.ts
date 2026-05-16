@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/db'
 import authRoutes from './routes/authRoutes'
 import errorHandler from './middleware/errorHandler'
+import leadRoutes from './routes/leadRoutes'
 
 dotenv.config()
 
@@ -18,6 +19,7 @@ app.use(express.json())
 
 // Routes
 app.use('/api/auth', authRoutes)
+app.use('/api/leads', leadRoutes)
 
 // Health check
 app.get('/', (_req, res) => {
