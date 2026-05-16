@@ -5,6 +5,7 @@ import connectDB from './config/db'
 import authRoutes from './routes/authRoutes'
 import errorHandler from './middleware/errorHandler'
 import leadRoutes from './routes/leadRoutes'
+import userRoutes from './routes/userRoutes'
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.use(express.json())
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/leads', leadRoutes)
+app.use('/api/users', userRoutes)
 
 // Health check
 app.get('/', (_req, res) => {

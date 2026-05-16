@@ -2,7 +2,7 @@ import { Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import User from '../models/User'
 import AppError from '../utils/AppError'
-import { AuthRequest } from '../types/index'
+import { AuthRequest, UserRole } from '../types/index'
 
 interface JwtPayload {
   id: string
@@ -38,10 +38,11 @@ export const protect = async (
   }
 }
 
-export const restrictTo = (...roles: string[]) => {
+export const restrictTo = (...roles: UserRole[]) => {
   return (req: AuthRequest, _res: Response, next: NextFunction): void => {
-    if (!req.user || !roles.includes(req.user.role)) {
-      return next(new AppError('You do not have permission to perform this action', 403))
+    if (!req.user || !roles.includes(req.user.role as UserRole)) {
+      return next(
+        new AppError('You do not have permission to perform this action', 403))
     }
     next()
   }
