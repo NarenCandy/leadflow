@@ -52,3 +52,10 @@ export interface LeadQueryParams {
   search?: string
   sort?: 'latest' | 'oldest'
 }
+
+import { Request } from 'express'
+import { IUser } from '../models/User'
+
+export interface AuthRequest extends Request {
+  user?: IUser
+}
