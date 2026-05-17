@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import type { User, AuthState, LoginCredentials, RegisterCredentials } from '../types/index'
 import axiosInstance from '../api/axios'
 import toast from 'react-hot-toast'
+import { useQueryClient } from '@tanstack/react-query'
 
 interface AuthContextType extends AuthState {
   login: (credentials: LoginCredentials) => Promise<boolean>
@@ -17,6 +18,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
   const [token, setToken] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const queryClient = useQueryClient()
 
   // On app load, restore session from localStorage
   useEffect(() => {
@@ -40,6 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const response = await axiosInstance.post('/auth/login', credentials)
       const { user: loggedInUser, token: newToken } = response.data.data
 
+      queryClient.clear()
       setUser(loggedInUser)
       setToken(newToken)
       localStorage.setItem('token', newToken)
@@ -72,6 +75,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const response = await axiosInstance.post('/auth/register', credentials)
       const { user: newUser, token: newToken } = response.data.data
 
+      queryClient.clear()
       setUser(newUser)
       setToken(newToken)
       localStorage.setItem('token', newToken)
@@ -104,8 +108,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setToken(null)
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+    queryClient.clear()
     toast.success('Logged out successfully')
-  
   }
 
   return (

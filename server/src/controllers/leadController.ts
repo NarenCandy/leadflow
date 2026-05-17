@@ -125,14 +125,22 @@ export const getLead = async (
       throw new AppError('Lead not found', 404)
     }
 
+    // Get the actual ID whether createdBy is string or populated object
+    const createdById = typeof lead.createdBy === 'string' 
+      ? lead.createdBy 
+      : lead.createdBy._id.toString()
+
+    // Sales users can only view leads they created
     if (
       req.user!.role === 'sales' &&
-      lead.createdBy.toString() !== req.user!._id.toString()
+      createdById !== req.user!._id.toString()
     ) {
+      
       throw new AppError('You do not have permission to view this lead', 403)
     }
 
-    res.status(200).json({
+
+      res.status(200).json({
       success: true,
       message: 'Lead fetched successfully',
       data: { lead }
