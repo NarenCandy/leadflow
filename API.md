@@ -1,7 +1,7 @@
 # LeadFlow API Documentation
 
 **Base URL (Local):** `http://localhost:5000/api`  
-**Base URL (Production):** `[Add Render URL after deployment]`
+**Base URL (Production):** `https://leadflow-backend-oh0z.onrender.com/api`
 
 All protected routes require the `Authorization` header:
 ```

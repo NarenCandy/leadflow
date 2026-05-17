@@ -4,8 +4,8 @@ A full-stack Lead Management Dashboard built with the MERN stack, TypeScript, an
 
 ## Live Demo
 
-- **Frontend:** Add Vercel URL after deployment
-- **Backend API:** Add Render URL after deployment
+- **Frontend:** [Click this](https://leadflow-rose-mu.vercel.app/)
+- **Backend API:** [click this(might take few minutes to load)](https://leadflow-backend-oh0z.onrender.com)
 
 ---
 
