@@ -94,8 +94,3 @@ export interface LeadFilters {
   sort: 'latest' | 'oldest'
   page: number
 }
-export interface AuthState {
-  user: User | null
-  token: string | null
-  isAuthenticated: boolean
-}
