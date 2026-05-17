@@ -17,3 +17,5 @@ npm-debug.log*
 
 # Vite build output
 client/dist/
+
+docker-compose.yml

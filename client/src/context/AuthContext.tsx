@@ -48,8 +48,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       toast.success(`Welcome back, ${loggedInUser.name}!`)
       return true
     } catch (error: unknown) {
-      const message =
-        axios_getErrorMessage(error) || 'Login failed. Please try again.'
+      let message ='Login failed. Please try again.'
+      if (
+      error &&
+      typeof error === 'object' &&
+      'response' in error &&
+      error.response &&
+      typeof error.response === 'object' &&
+      'data' in error.response &&
+      error.response.data &&
+      typeof error.response.data === 'object' &&
+      'message' in error.response.data
+    ) {
+      message = (error.response.data as { message: string }).message
+    }
       toast.error(message)
       return false
     }
@@ -68,8 +80,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       toast.success('Account created successfully!')
       return true
     } catch (error: unknown) {
-      const message =
-        axios_getErrorMessage(error) || 'Registration failed. Please try again.'
+      let message ='Registration failed. Please try again.'
+      if (
+      error &&
+      typeof error === 'object' &&
+      'response' in error &&
+      error.response &&
+      typeof error.response === 'object' &&
+      'data' in error.response &&
+      error.response.data &&
+      typeof error.response.data === 'object' &&
+      'message' in error.response.data
+    ) {
+      message = (error.response.data as { message: string }).message
+    }
       toast.error(message)
       return false
     }
