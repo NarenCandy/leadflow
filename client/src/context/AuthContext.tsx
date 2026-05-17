@@ -105,7 +105,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     toast.success('Logged out successfully')
-    window.location.href = '/login'
+  
   }
 
   return (
