@@ -126,20 +126,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 }
 
 
-const axios_getErrorMessage = (error: unknown): string => {
-  if (
-    error &&
-    typeof error === 'object' &&
-    'response' in error &&
-    error.response &&
-    typeof error.response === 'object' &&
-    'data' in error.response
-  ) {
-    const data = error.response.data as { message?: string }
-    return data.message || ''
-  }
-  return ''
-}
+
 
 
 export const useAuth = (): AuthContextType => {
