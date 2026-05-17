@@ -1,4 +1,4 @@
-# LeadFlow — Smart Leads Dashboard
+# GigFlow — Smart Leads Dashboard
 
 A full-stack Lead Management Dashboard built with the MERN stack, TypeScript, and TailwindCSS. Built as part of the ServiceHive Full Stack Internship Assignment.
 
@@ -66,7 +66,7 @@ A full-stack Lead Management Dashboard built with the MERN stack, TypeScript, an
 ## Project Structure
 
 ```
-leadflow/
+gigflow/
 ├── server/                     Backend — Node + Express + TypeScript
 │   ├── src/
 │   │   ├── config/             Database connection
@@ -120,8 +120,8 @@ This is the easiest way to run the full project with one command.
 
 Step 1 — Clone the repository
 
-    git clone https://github.com/NarenCandy/leadflow.git
-    cd leadflow
+    git clone https://github.com/NarenCandy/gigflow.git
+    cd gigflow
 
 Step 2 — Create the root environment file
 
@@ -178,7 +178,7 @@ The frontend starts at http://localhost:5173
 ### Backend — server/.env
 
     PORT=5000
-    MONGODB_URI=mongodb://localhost:27017/leadflow
+    MONGODB_URI=mongodb://localhost:27017/gigflow
     JWT_SECRET=your_jwt_secret_here
     JWT_EXPIRES_IN=7d
     NODE_ENV=development

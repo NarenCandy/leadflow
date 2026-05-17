@@ -16,7 +16,7 @@ const Navbar = () => {
             <span className="text-white text-sm font-bold">L</span>
           </div>
           <span className="font-bold text-gray-900 dark:text-white text-lg">
-            LeadFlow
+            GigFlow
           </span>
         </div>
 

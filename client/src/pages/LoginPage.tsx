@@ -63,7 +63,7 @@ const LoginPage = () => {
             Welcome back
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">
-            Sign in to your LeadFlow account
+            Sign in to your GigFlow account
           </p>
         </div>
 

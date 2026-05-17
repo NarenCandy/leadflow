@@ -80,7 +80,7 @@ const RegisterPage = () => {
             Create your account
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">
-            Start managing your leads with LeadFlow
+            Start managing your leads with GigFlow
           </p>
         </div>
 

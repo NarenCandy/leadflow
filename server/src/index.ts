@@ -26,7 +26,7 @@ app.use('/api/users', userRoutes)
 
 // Health check
 app.get('/', (_req, res) => {
-  res.json({ success: true, message: 'LeadFlow API is running' })
+  res.json({ success: true, message: 'GigFlow API is running' })
 })
 
 // Global error handle
